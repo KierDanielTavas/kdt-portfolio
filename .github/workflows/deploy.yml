@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # deploys when you push to main
+      - main
 
 permissions:
   contents: read
@@ -29,13 +29,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build the site
+      - name: Build
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist  # Vite outputs to dist
+          path: ./dist
 
   deploy:
     needs: build
